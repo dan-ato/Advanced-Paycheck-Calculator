@@ -1,5 +1,6 @@
 import streamlit as st
 from estimator.core import load_history, calculate_pay
+import os
 
 # --- 1. Page Setup ---
 st.set_page_config(
@@ -22,7 +23,7 @@ st.markdown(
 
 st.markdown("<br>", unsafe_allow_html=True)  # spacing
 
-# --- 6. Sidebar Info ---
+# --- 3. Sidebar Info ---
 st.sidebar.header("About")
 st.sidebar.info(
     """
@@ -32,7 +33,7 @@ st.sidebar.info(
     """
 )
 
-# --- 3. Input Section ---
+# --- 4. Input Section ---
 with st.container():
     st.subheader("Enter Your Work Data")
     hours_input = st.text_input("Hours (HH.MM or HH:MM):")
@@ -47,7 +48,7 @@ if calculate:
     history = load_history()
     result = calculate_pay(hours_input, history=history, actual_net=actual_net)
 
-    # --- 4. Output Section with Metrics ---
+    # --- 5. Output Section with Metrics ---
     st.markdown("---")
     st.subheader("📊 Paycheck Results")
     st.metric(label="Converted Hours", value=f"{result['total_hours']:.3f}")
