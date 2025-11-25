@@ -16,10 +16,10 @@ if theme_base == "light":
     container_bg = "#f5f5f5"  # softer light gray
     subtitle_color = "#555555"
 else:
-    container_bg = "#1e1e1e"  # darker gray
+    container_bg = "#303030"  # darker gray
     subtitle_color = "#cccccc"
 
-header_color = "#111111" if theme_base == "light" else "#ffffff"
+header_color = "#303030" if theme_base == "light" else "#ffffff"
 container_shadow = "0 4px 6px rgba(0,0,0,0.1)"  # subtle shadow
 
 # Header container
