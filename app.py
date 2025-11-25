@@ -8,19 +8,18 @@ st.set_page_config(
     layout="centered"
 )
 
-# Theme-based colors
+# Determine container color based on Streamlit theme
 theme_base = st.get_option("theme.base")
 
 if theme_base == "light":
-    container_bg = "#f9f9f9ad"       # light gray container
-    header_color = "#0a3d62"       # darker blue for better contrast
-    subtitle_color = "#333333"     # dark gray
+    container_bg = "#f9f9f9"  # light gray for light mode
 else:
-    container_bg = "#1e1e1e"       # dark gray container
-    header_color = "#2f73fa"       # soft cyan
-    subtitle_color = "#cccccc"     # light gray
+    container_bg = "#2c2c2c"  # slightly darker gray for dark mode
 
-# Header container
+# Keep header and subtitle colors consistent
+header_color = "black"
+subtitle_color = "#cccccc" if theme_base == "dark" else "#333333"
+
 st.markdown(
     f"""
     <div style='background-color:{container_bg};padding:20px;border-radius:15px;text-align:center'>
