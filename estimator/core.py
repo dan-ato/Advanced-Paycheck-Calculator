@@ -5,7 +5,16 @@ BASE_RATE = 12.35
 OVERTIME_MULTIPLIER = 1.5
 REGULAR_HOURS = 80
 
-HISTORY_FILE = os.path.join(os.path.dirname(__file__), "deduction_history.json")
+# --- Persistent data folder for Streamlit Cloud ---
+DATA_FOLDER = os.path.join(os.path.dirname(__file__), "data")
+os.makedirs(DATA_FOLDER, exist_ok=True)
+
+HISTORY_FILE = os.path.join(DATA_FOLDER, "deduction_history.json")
+
+# Ensure the JSON file exists
+if not os.path.exists(HISTORY_FILE):
+    with open(HISTORY_FILE, "w") as f:
+        json.dump([], f)
 
 
 def load_history():
