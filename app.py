@@ -8,23 +8,29 @@ st.set_page_config(
     layout="centered"
 )
 
-# --- 2️⃣ Theme-based colors ---
+# Theme-based colors
 theme_base = st.get_option("theme.base")
-header_color = "#0f4c75" if theme_base == "light" else "#90e0ef"
-metric_good = "#0f9d58"  # green
-metric_warning = "#f4b400"  # yellow
-metric_bad = "#db4437"  # red
 
-# --- 3️⃣ Header with subtle visuals ---
+if theme_base == "light":
+    container_bg = "#f9f9f9"       # light gray container
+    header_color = "#0a3d62"       # darker blue for better contrast
+    subtitle_color = "#333333"     # dark gray
+else:
+    container_bg = "#1e1e1e"       # dark gray container
+    header_color = "#90e0ef"       # soft cyan
+    subtitle_color = "#cccccc"     # light gray
+
+# Header container
 st.markdown(
     f"""
-    <div style='background-color:#f0f2f6;padding:20px;border-radius:15px;text-align:center'>
+    <div style='background-color:{container_bg};padding:20px;border-radius:15px;text-align:center'>
         <h2 style='color:{header_color}'>💰 Advanced Paycheck Estimator</h2>
-        <p style='color:#333;font-size:14px'>Rolling deduction model with calibration memory</p>
+        <p style='color:{subtitle_color};font-size:14px'>Rolling deduction model with calibration memory</p>
     </div>
     """,
     unsafe_allow_html=True
 )
+
 st.markdown("<br>", unsafe_allow_html=True)
 
 # --- 4️⃣ Sidebar Extras ---
