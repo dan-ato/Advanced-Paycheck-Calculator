@@ -11,18 +11,19 @@ st.set_page_config(
 # --- 2️⃣ Color & Visual Theme ---
 theme_base = st.get_option("theme.base")
 
-# Container background & shadow
+# Theme-aware container background & shadow
 if theme_base == "light":
-    container_bg = "#f5f5f5"  # softer light gray
-    subtitle_color = "#555555"
+    container_bg = "#f0f4f8"      # soft blue-gray
+    header_color = "#0d3b66"      # deep blue for title
+    subtitle_color = "#333333"    # dark gray
 else:
-    container_bg = "#303030"  # darker gray
-    subtitle_color = "#cccccc"
+    container_bg = "#1b2a49"      # deep navy
+    header_color = "#a0c4ff"      # light blue title
+    subtitle_color = "#cccccc"    # light gray
 
-header_color = "#303030" if theme_base == "light" else "#ffffff"
 container_shadow = "0 4px 6px rgba(0,0,0,0.1)"  # subtle shadow
 
-# Header container
+# --- 3️⃣ Header Container ---
 st.markdown(
     f"""
     <div style='background-color:{container_bg};
@@ -38,7 +39,7 @@ st.markdown(
 )
 st.markdown("<br>", unsafe_allow_html=True)
 
-# --- 3️⃣ Sidebar Extras ---
+# --- 4️⃣ Sidebar Extras ---
 st.sidebar.header("About & Tips")
 st.sidebar.info(
     """
@@ -49,14 +50,14 @@ st.sidebar.info(
 )
 st.sidebar.write("**Version:** 1.0.0")
 
-# --- 4️⃣ Input Section ---
+# --- 5️⃣ Input Section ---
 with st.container():
     st.subheader("Enter Your Work Data")
     hours_input = st.text_input("Hours (HH.MM or HH:MM):")
     actual_net_input = st.text_input("Actual Net Pay (optional):")
     calculate = st.button("Calculate")
 
-# --- 5️⃣ Process Calculation ---
+# --- 6️⃣ Process Calculation ---
 if calculate:
     actual_net = float(actual_net_input) if actual_net_input.strip() else None
     history = load_history()
@@ -82,7 +83,7 @@ if calculate:
     col1, col2, col3 = st.columns(3)
     col1.metric("Gross Pay", f"${result['gross']:.2f}")
     col2.metric("Estimated Net", f"${result['net']:.2f}")
-    col3.metric("Effective Rate", f"${eff_rate:.2f}/hr", delta=None)
+    col3.metric("Effective Rate", f"{eff_rate:.2f}/hr", delta=None)
 
     # Additional info
     st.write(f"Converted Hours: **{result['total_hours']:.3f}**")
