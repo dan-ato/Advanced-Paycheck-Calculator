@@ -12,12 +12,12 @@ st.set_page_config(
 theme_base = st.get_option("theme.base")
 
 if theme_base == "light":
-    container_bg = "#f9f9f9"       # light gray container
+    container_bg = "#f9f9f9ad"       # light gray container
     header_color = "#0a3d62"       # darker blue for better contrast
     subtitle_color = "#333333"     # dark gray
 else:
     container_bg = "#1e1e1e"       # dark gray container
-    header_color = "#90e0ef"       # soft cyan
+    header_color = "#2f73fa"       # soft cyan
     subtitle_color = "#cccccc"     # light gray
 
 # Header container
