@@ -56,9 +56,9 @@ if calculate:
 
     # Conditional color for Effective Rate
     eff_rate = result['effective_rate']
-    if eff_rate >= 12.35:
+    if eff_rate >= 13.35:
         eff_color = metric_good
-    elif 11 <= eff_rate < 12.35:
+    elif 11 <= eff_rate < 13.35:
         eff_color = metric_warning
     else:
         eff_color = metric_bad
