@@ -36,7 +36,7 @@ st.sidebar.info(
     This tool becomes more accurate over time as you input actual net pay.
     """
 )
-st.sidebar.write("**Version:** 1.0.0")
+st.sidebar.write("**Version:** 1.0.1")
 
 # --- 5️⃣ Input Section with subtle background ---
 with st.container():
