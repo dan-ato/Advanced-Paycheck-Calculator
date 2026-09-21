@@ -1,7 +1,7 @@
 import json
 import os
 
-BASE_RATE = 12.35
+BASE_RATE = 13.35
 OVERTIME_MULTIPLIER = 1.5
 REGULAR_HOURS = 80
 
